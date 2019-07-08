@@ -10,7 +10,7 @@ from addict import Dict
 import random
 import pathlib
 import string
-import uuid
+
 driver = webdriver.Chrome('/Users/tanay/Desktop/important files/chromedriver')  # Optional argument, if not specified will search path.
 driver.get('https://grover.allenai.org/')
 while True:
@@ -36,8 +36,6 @@ while True:
 
     title = driver.find_element_by_xpath('//*[@id="root"]/section/main/div/div/div[2]/div[2]/div[2]/div[2]/span').text
     article = driver.find_element_by_xpath('//*[@id="root"]/section/main/div/div/div[2]/div[2]/div[2]/div[4]/span').text
-
-    randomstr = str(uuid.uuid4());
     filename = title + ".txt"
     with open(filename, "w") as text_file:
         text_file.write(" %s \n %s" % (title, article))
